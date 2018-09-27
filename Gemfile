@@ -39,6 +39,13 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -52,3 +59,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'haml-rails'
+gem 'erb2haml'
+gem 'bootstrap-sass', '3.3.7'
+gem 'carrierwave',             '1.2.2'
+gem 'mini_magick',             '4.7.0'
+
+# gem 'will_paginate',           '3.1.6' ページねーとする時に入れよう
+# gem 'bootstrap-will_paginate', '1.0.0'
