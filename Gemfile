@@ -65,6 +65,6 @@ gem 'erb2haml'
 gem 'bootstrap-sass', '3.3.7'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
-
+gem 'bcrypt'
 # gem 'will_paginate',           '3.1.6' ページねーとする時に入れよう
 # gem 'bootstrap-will_paginate', '1.0.0'
