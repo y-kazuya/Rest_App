@@ -1,0 +1,30 @@
+.hedder
+.session-lap
+  .main-form
+    #welcome_messsage
+      welcome
+      %i.fas.fa-utensils
+
+    .form-wrapper
+      %h1.form_title Sign In
+      = render 'shared/error_mess'
+      .login_form
+        = form_for(@owner) do |f|
+          .form-item
+            = f.label :name
+            = f.text_field :name,placeholder: "name"
+          .form-item
+            = f.label :email
+            = f.email_field :email,placeholder: "Email Address"
+          .form-item
+            = f.label :password
+            = f.password_field :password, placeholder: "Password"
+          .form-item
+            = f.label :password_confirmation, "Confirmation"
+            = f.password_field :password_confirmation, placeholder: "Password confirm"
+          .button-panel
+            =f.submit "Sign Up", class: "button"
+        .form-footer
+          %p
+            %a{:href => "/login",id: "toggle_seission"} login
+.footer

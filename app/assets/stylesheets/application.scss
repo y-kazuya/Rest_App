@@ -1,5 +1,8 @@
 @import "./reset";
+@import "font-awesome-sprockets"; //これを追加
+@import "font-awesome";  //これも追加
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "./config/color";
 @import "./config/vali";
+@import "./modlues/sessions_form"

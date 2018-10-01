@@ -74,6 +74,28 @@ RSpec.describe Owner, type: :model do
       expect(owner.errors[:phone_number]).to include("has already been taken")
     end
 
+    it "email addresses should be saved as lower-case" do
+      mixed_case_email = "Foo@ExAMPle.CoM"
+      owner = FactoryBot.build(:owner)
+      owner.email = "Foo@ExAMPle.CoM"
+      owner.save
+      expect(mixed_case_email.downcase).to eq owner.reload.email
+    end
 
+
+    it "psword not be blank" do
+      owner = FactoryBot.build(:owner, password: " " *8, password_confirmation: " "*8 )
+      owner.valid?
+      expect(owner.errors[:password]).to include("can't be blank")
+    end
+
+    it "ps cant save for 5chara" do
+      owner = FactoryBot.build(:owner, password: "b" *5, password_confirmation: "b"*5 )
+      owner.valid?
+      expect(owner.errors[:password]).to include("is too short (minimum is 6 characters)")
+    end
+  end
+
+  describe "クラスメソッド" do
   end
 end

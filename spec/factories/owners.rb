@@ -6,6 +6,8 @@ FactoryBot.define do
     born Faker::Name.last_name
     age Faker::Number.number(2)
     phone_number Faker::Number.number(8)
+    password "123456789"
+    password_confirmation "123456789"
 
   end
 end

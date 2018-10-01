@@ -1,0 +1,29 @@
+.hedder
+.session-lap
+  .main-form
+    #welcome_messsage
+      welcome
+      %i.fas.fa-utensils
+    .form-wrapper
+      %h1.form_title Sign In
+      -# = render 'shared/error_mess'
+      .login_form
+        #log_in
+          = form_for(:session,url: login_path) do |f|
+            .form-item
+              = f.email_field :email,placeholder: "Email Address"
+            .form-item
+              = f.password_field :password, placeholder: "Password"
+            .checkbox
+              %label
+                =f.check_box :remember_me, id: "user_remenber_me"
+                Remember me
+            .button-panel
+              =f.submit "Sign In", class: "button"
+          .form-footer
+            %p
+              %a{:href => "owners/new",class: "new_owner_bottun"} Create an account
+            %p
+              %a{:href => ""} Forgot password?
+.footer
+
