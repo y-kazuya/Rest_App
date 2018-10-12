@@ -62,13 +62,16 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap-sass'
+# gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'carrierwave',             '1.2.2'
-gem 'mini_magick',             '4.7.0'
+gem 'rmagick'
 gem 'bcrypt',         '3.1.12'
 gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem "bourbon"
+gem 'compass-rails', github: 'Compass/compass-rails'
 # gem 'will_paginate',           '3.1.6' ページねーとする時に入れよう
 # gem 'bootstrap-will_paginate', '1.0.0'

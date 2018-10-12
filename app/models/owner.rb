@@ -15,6 +15,8 @@ class Owner < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   has_secure_password
 
+  has_many :stores
+
   def have_age?
     age.nil?
   end

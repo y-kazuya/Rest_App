@@ -3,9 +3,10 @@ Rails.application.routes.draw do
   root "sessions#new"
   resources :owners
   resources :restaurants
+  resources :stores
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   get  '/signup',  to: 'owners#new'
-  get    "/top" ,  to: "statics#top"
+  get    "/top" ,  to: "stores#top"
 end

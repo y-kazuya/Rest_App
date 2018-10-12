@@ -1,0 +1,30 @@
+#main_hedder{
+  height :8vh;
+  min-height: 80px;
+  border-bottom:1px solid #cccccc ;
+  box-sizing: border-box;
+  &__logo{
+
+  }
+
+  &__items{
+    &__lists{
+      .main_hedder__items__lists__it{
+
+        a:hover{
+          border-bottom:1px solid #cccccc ;
+        }
+
+        a{
+
+        }
+
+        #add_store{
+          margin-top: 3px;
+          border-top:1px solid #cccccc ;
+        }
+
+      }
+    }
+  }
+}

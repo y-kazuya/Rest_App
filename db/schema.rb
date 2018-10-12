@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181001081922) do
+ActiveRecord::Schema.define(version: 20181011025802) do
+
+  create_table "holidays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "holi"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "owners", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", default: "", null: false
@@ -29,4 +35,60 @@ ActiveRecord::Schema.define(version: 20181001081922) do
     t.index ["phone_number"], name: "index_owners_on_phone_number", unique: true
   end
 
+  create_table "store_holidays", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "store_id"
+    t.bigint "holiday_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["holiday_id"], name: "index_store_holidays_on_holiday_id"
+    t.index ["store_id", "holiday_id"], name: "index_store_holidays_on_store_id_and_holiday_id"
+    t.index ["store_id"], name: "index_store_holidays_on_store_id"
+  end
+
+  create_table "store_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "image"
+    t.integer "status"
+    t.bigint "store_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id", "image"], name: "index_store_images_on_store_id_and_image"
+    t.index ["store_id"], name: "index_store_images_on_store_id"
+  end
+
+  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.integer "cate", null: false
+    t.integer "ken", null: false
+    t.string "adrres"
+    t.string "kibo"
+    t.integer "seki"
+    t.text "profile"
+    t.bigint "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "working_time"
+    t.index ["name"], name: "index_stores_on_name"
+    t.index ["owner_id"], name: "index_stores_on_owner_id"
+  end
+
+  create_table "stores_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "store_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["store_id"], name: "index_stores_tags_on_store_id"
+    t.index ["tag_id"], name: "index_stores_tags_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  add_foreign_key "store_holidays", "holidays"
+  add_foreign_key "store_holidays", "stores"
+  add_foreign_key "store_images", "stores"
+  add_foreign_key "stores", "owners"
 end

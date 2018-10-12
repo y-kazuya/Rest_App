@@ -9,7 +9,7 @@
       -# = render 'shared/error_mess'
       .login_form
         #log_in
-          = form_for(:session,url: login_path) do |f|
+          = form_for(:session,url: login_path,html: {class: 'logform'} ) do |f|
             .form-item
               = f.email_field :email,placeholder: "Email Address"
             .form-item

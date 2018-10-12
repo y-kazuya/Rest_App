@@ -1,0 +1,39 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light#main_hedder
+  %a.navbar-brand#main_hedder__logo{:href => "#"}
+    REST
+    %i.fas.fa-utensils
+  %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavDropdown", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNavDropdown.collapse.navbar-collapse#main_hedder__items
+    %ul.navbar-nav#main_hedder__items__lists
+      %li.nav-item.main_hedder__items__lists__it
+        %a.nav-link{:href => "#"}
+          店舗を追加
+          %span.sr-only (current)
+      %li.nav-item.main_hedder__items__lists__it
+        %a.nav-link{:href => "#"}
+          店舗を探す
+      %li.nav-item.main_hedder__items__lists__it
+        %a.nav-link{:href => "#"}
+          オーナーを探す
+      %li.nav-item.dropdown.main_hedder__items__lists__it
+        %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          店舗
+        .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+          - current_owner.stores.each do |store|
+            = link_to store.name, store_path(store),class: "dropdown-item"
+
+          = link_to "店舗を追加", new_store_path,class: "dropdown-item", id: "add_store"
+      %li.nav-item.dropdown.main_hedder__items__lists__it
+        %a#navbarDropdownMenuLink.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          = image_tag("parson.png", size:"16x16")
+          = "#{current_owner.name}様"
+        .dropdown-menu{"aria-labelledby" => "navbarDropdownMenuLink"}
+          %a.dropdown-item{:href => "#"}
+            オーナー情報編集
+          %a.dropdown-item{:href => "#"}
+            ああ
+          %a.dropdown-item{:href => "#"}
+            ログアウト
+
+

@@ -16,7 +16,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new(owner_params)
     if @owner.save
       log_in @owner
-      redirect_to top_path
+      redirect_to "/top"
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render :new

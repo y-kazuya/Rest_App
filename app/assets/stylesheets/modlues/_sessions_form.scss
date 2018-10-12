@@ -2,6 +2,7 @@
   width: 100vw;
   height: 80vh;
   position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 
@@ -46,6 +47,8 @@
 .form_title {
   text-align: center;
   padding: 1em 0;
+  font-size: 36px;
+  font-weight: 500;
 
 }
 
@@ -53,9 +56,14 @@
   padding: 0 1.5em;
 }
 
+.logform{
+  padding: 0;
+}
+
 .form-item {
   margin-bottom: 0.75em;
   width: 100%;
+  text-align: left;
 }
 
 .form-item input {
@@ -68,11 +76,27 @@
   height: 50px;
   transition: border-color 0.3s;
   width: 100%;
+  margin-bottom: 0;
 }
 
 .form-item input:focus {
   border-bottom: 2px solid #c0c0c0;
   outline: none;
+}
+
+.checkbox {
+  text-align: left;
+  label{
+    font-weight: 380;
+    font-size: 14px;
+    color: black;
+    input{
+      left: 0 !important;
+      opacity: 100 !important;
+      margin: 4px 0;
+      margin-left: 0 !important;
+    }
+  }
 }
 
 .button-panel {

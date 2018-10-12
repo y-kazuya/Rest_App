@@ -1,8 +1,27 @@
-@import "./reset";
-@import "font-awesome-sprockets"; //これを追加
-@import "font-awesome";  //これも追加
-@import "bootstrap-sprockets";
-@import "bootstrap";
+// @import "materialize/components/color";
+// $primary-color: color("blue", "lighten-2") !default;
+// @import 'materialize';
+@import "compass";
+// @import "bourbon";
+
+
+
 @import "./config/color";
 @import "./config/vali";
-@import "./modlues/sessions_form"
+
+@import './config/variables';
+@import './config/mixins'; //c
+@import './config/layout'; //
+//= require bootstrap
+@import "./reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "style";
+
+@import "./modlues/hedder";
+@import "./modlues/sessions_form";
+

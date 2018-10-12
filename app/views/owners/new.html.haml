@@ -9,7 +9,7 @@
       %h1.form_title Sign In
       = render 'shared/error_mess'
       .login_form
-        = form_for(@owner) do |f|
+        = form_for(@owner,html: {class: 'logform'}) do |f|
           .form-item
             = f.label :name
             = f.text_field :name,placeholder: "name"

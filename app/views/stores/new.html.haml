@@ -1,0 +1,36 @@
+= render "shared/hedder"
+= form_for @store do |f|
+  = f.hidden_field :owner_id, value: current_owner.id
+
+  = f.text_field :name, placeholder: "name"
+  = f.select :cate, Store.cates.keys, {prompt: '選択してください'}, class: 'form-control btn btn-info'
+  = f.select :ken, Store.kens.keys, {prompt: '選択してください'}, class: 'form-control btn btn-info'
+  = f.text_field :adrres, placeholder: "住所"
+
+  = f.text_field :profile, placeholder: "情報"
+  = f.text_field :working_time, placeholder: "例10:00~21:00(LO 19:00)"
+
+
+  .field
+  = f.collection_check_boxes :holiday_ids, Holiday.all, :id, :holi, include_hidden: false do |b|
+    = b.check_box
+    = b.label { b.text }
+
+  = f.fields_for :store_images do |image|
+    = image.file_field :image
+    = image.hidden_field :status, value: 1
+
+
+
+
+  = f.fields_for :tags do |t|
+    = t.text_field :name, placeholder: "tag1"
+
+  = f.fields_for :tags do |t|
+    = t.text_field :name, placeholder: "tag2"
+
+  = f.fields_for :tags do |t|
+    = t.text_field :name, placeholder: "tag3"
+
+  = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"
+
